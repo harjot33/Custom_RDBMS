@@ -1,8 +1,8 @@
-import java.util.Scanner;
-import java.util.regex.Pattern;
+import java.io.IOException;
 
 public class run {
-    public static void main(String[] args) {
-        System.out.println("Hello");
+    public static void main(String[] args) throws IOException {
+        Action action = new Action();
+        action.CreateDatabase("data1");
     }
 }
