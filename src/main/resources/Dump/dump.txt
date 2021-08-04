@@ -1,0 +1,23 @@
+CREATE TABLE IF NOT EXISTS Costomers (
+ CustomerName varchar(20),
+ ContactNumber number(10),
+ PK CustomerName,
+)
+INSERT INTO Costomers (CustomerName, ContactNumber)
+VALUES
+('Cardinal', 'Tom B.'),
+);
+CREATE TABLE IF NOT EXISTS Customers (
+ CustomerName varchar(20),
+ ContactNumber number(10),
+)
+INSERT INTO Customers (CustomerName, ContactNumber)
+VALUES
+('name1', 12),
+('name1', 12),
+('Akash', 10),
+('Ramesh', 10),
+('Suresh', 10),
+);
+
+

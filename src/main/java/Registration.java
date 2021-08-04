@@ -8,7 +8,7 @@ public class Registration {
   public static boolean registeruser(List<String> userCredentials) throws IOException {
 
     try {
-      String filepath = "resources/Credentials.cred";
+      String filepath = "src/main/resources/Credentials.cred";
       File file = new File(filepath);
       FileWriter fw = new FileWriter(file,true);
       String cred = userCredentials.get(0);

@@ -1,10 +1,10 @@
 Costomers
-CustomerName varchar(20)
-ContactNumber number(10)
-
+CustomerName:varchar(20)
+ContactNumber:number(10)
+PK:CustomerName
 
 Customers
-CustomerName varchar(20)
-ContactNumber number(10)
+CustomerName:varchar(20)
+ContactNumber:number(10)
 
 

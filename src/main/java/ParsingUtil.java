@@ -7,10 +7,11 @@ public class ParsingUtil {
     private static final String INSERT_REGEX = "(?i)INSERT INTO (\\w+) \\(([\\s\\S]+)\\)\\s+VALUES\\s+\\(([\\s\\S]+)\\);";
     private static final String DELETE_REGEX = "(?i)DELETE FROM (\\w+) WHERE ([\\s\\S]+);";
     private static final String UPDATE_REGEX = "(?i)UPDATE (\\w+)\\sSET\\s([\\s\\S]+)\\sWHERE\\s([\\s\\S]+);";
-    private static final String ALTER_TABLE_DROP = "(?i)ALTER TABLE (\\w+)\\sDROP " +
-        "COLUMN (\\w+);";
-    private static final String ALTER_TABLE_ADD = "(?i)ALTER TABLE (\\w+)\\sADD " +
-        "COLUMN (\\w+);";
+    private static final String ALTER_TABLE_DROP = "(?i)ALTER TABLE (\\w+)" +
+        "\\sDROP " + "COLUMN (\\w+);";
+    private static final String ALTER_TABLE_ADD = "(?i)ALTER TABLE (\\w+)" +
+        "\\sADD COLUMN (\\w+) (\\w+)\\s+\\(([\\s\\S]+)\\);";
+
 
     public QueryType identifyQueryType(String query) {
         if (query == null) {
