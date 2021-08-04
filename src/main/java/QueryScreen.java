@@ -3,9 +3,6 @@ import java.io.IOException;
 import java.util.Scanner;
 import java.util.regex.Pattern;
 
-/**
- * @author Harjot Singh
- */
 public class QueryScreen {
 
   public void queryScreenOptions(String databasename) throws IOException {

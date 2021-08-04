@@ -1,7 +1,7 @@
 import java.util.regex.Pattern;
 
 public class ParsingUtil {
-    private static final String CREATE_TABLE_REGEX = "(?i)CREATE TABLE (\\w+) \\(((?:\\s?\\w+\\s\\w+\\(?[0-9]*\\)?,?)+)\\)\\s?;";
+    private static final String CREATE_TABLE_REGEX = "(?i)(CREATE TABLE (\\w+) \\(((?:\\s?\\w+\\s\\w+\\(?[0-9]*\\)?,?)+),?((PRIMARY KEY \\((\\w+)\\)),?((FOREIGN KEY \\((\\w+)\\)) REFERENCES (\\w+) \\((\\w+)\\))?)?\\)\\s?);";
     private static final String DROP_TABLE_REGEX = "(?i)DROP TABLE (\\w+);";
     private static final String SELECT_REGEX = "(?i)SELECT ([\\s\\S]+) FROM\\s(\\w+)+\\s?(WHERE\\s([\\s\\S]+))?;";
     private static final String INSERT_REGEX = "(?i)INSERT INTO (\\w+) \\(([\\s\\S]+)\\)\\s+VALUES\\s+\\(([\\s\\S]+)\\);";
