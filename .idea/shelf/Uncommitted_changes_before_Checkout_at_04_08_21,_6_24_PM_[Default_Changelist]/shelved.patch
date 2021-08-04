@@ -1,0 +1,164 @@
+Index: src/main/java/QueryProcessor.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>import java.io.IOException;\nimport java.util.regex.Matcher;\nimport java.util.regex.Pattern;\n\npublic class QueryProcessor {\n    static QueryExecutor executor = new QueryExecutor();\n    public static void processQuery(QueryType queryType, Pattern pattern, String originalQuery, String database) throws IOException {\n        if (queryType == QueryType.ERROR || pattern == null || originalQuery.isEmpty()) {\n            return;\n        }\n\n        switch (queryType) {\n            case CREATE:\n                processCreateQuery(pattern, originalQuery);\n                break;\n            case SELECT:\n                processSelectQuery(pattern, originalQuery);\n                break;\n            case INSERT:\n                processInsertQuery(pattern, originalQuery);\n                break;\n            case UPDATE:\n                processUpdateQuery(pattern, originalQuery);\n                break;\n            case ALTER:\n                processAlterDropColumnQuery(pattern, originalQuery, database);\n                break;\n            case DELETE:\n                processDeleteQuery(pattern, originalQuery, database);\n                break;\n            case DROP:\n                processDropQuery(pattern, originalQuery);\n                break;\n        }\n    }\n\n    private static void processCreateQuery(Pattern pattern, String originalQuery) {\n        // create query.\n    }\n\n    private static void processSelectQuery(Pattern pattern, String originalQuery) {\n    }\n\n    private static void processInsertQuery(Pattern pattern, String originalQuery) {\n    }\n\n\n    private static void processUpdateQuery(Pattern pattern, String originalQuery) {\n    }\n\n    private static void processAlterDropColumnQuery(Pattern pattern,\n                                                    String originalQuery)  {\n    }\n\n\n    private static void processDeleteQuery(Pattern pattern, String originalQuery, String database) throws IOException {\n        Matcher matcher = pattern.matcher(originalQuery);\n        matcher.matches();\n        if (matcher.groupCount() > 0) {\n            String tableName = matcher.group(1);\n            String condition = matcher.group(2);\n            if (condition != null && condition.indexOf('=') != -1) {\n                String[] conditionArray = condition.split(\"=\");\n                String columnName = conditionArray[0].trim();\n                String columnValue = conditionArray[1].trim();\n                System.out.println(\"\");\n                executor.executeDeleteQuery(tableName, columnName, columnValue, database);\n            }\n            System.out.println(\"\");\n        }\n    }\n\n    private static void processDropQuery(Pattern pattern, String originalQuery) {\n        String upperCaseQuery = originalQuery.toUpperCase();\n        Matcher matcher = pattern.matcher(upperCaseQuery);\n        matcher.matches();\n        String tableName = matcher.group(1);\n        executor.executeDropQuery(tableName);\n    }\n}\n\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/QueryProcessor.java b/src/main/java/QueryProcessor.java
+--- a/src/main/java/QueryProcessor.java	(revision fdf6e063afd0d2d722199f7c9ecd6d99ee6bb27c)
++++ b/src/main/java/QueryProcessor.java	(date 1628081675602)
+@@ -49,7 +49,7 @@
+     }
+ 
+     private static void processAlterDropColumnQuery(Pattern pattern,
+-                                                    String originalQuery)  {
++                                                    String query, String originalQuery)  {
+     }
+ 
+ 
+Index: .idea/jarRepositories.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/jarRepositories.xml b/.idea/jarRepositories.xml
+new file mode 100644
+--- /dev/null	(date 1628081644979)
++++ b/.idea/jarRepositories.xml	(date 1628081644979)
+@@ -0,0 +1,20 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project version="4">
++  <component name="RemoteRepositoriesConfiguration">
++    <remote-repository>
++      <option name="id" value="central" />
++      <option name="name" value="Maven Central repository" />
++      <option name="url" value="https://repo1.maven.org/maven2" />
++    </remote-repository>
++    <remote-repository>
++      <option name="id" value="jboss.community" />
++      <option name="name" value="JBoss Community repository" />
++      <option name="url" value="https://repository.jboss.org/nexus/content/repositories/public/" />
++    </remote-repository>
++    <remote-repository>
++      <option name="id" value="MavenRepo" />
++      <option name="name" value="MavenRepo" />
++      <option name="url" value="https://repo.maven.apache.org/maven2/" />
++    </remote-repository>
++  </component>
++</project>
+\ No newline at end of file
+Index: .idea/gradle.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/gradle.xml b/.idea/gradle.xml
+new file mode 100644
+--- /dev/null	(date 1628081644977)
++++ b/.idea/gradle.xml	(date 1628081644977)
+@@ -0,0 +1,17 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project version="4">
++  <component name="GradleMigrationSettings" migrationVersion="1" />
++  <component name="GradleSettings">
++    <option name="linkedExternalProjectsSettings">
++      <GradleProjectSettings>
++        <option name="distributionType" value="DEFAULT_WRAPPED" />
++        <option name="externalProjectPath" value="$PROJECT_DIR$" />
++        <option name="modules">
++          <set>
++            <option value="$PROJECT_DIR$" />
++          </set>
++        </option>
++      </GradleProjectSettings>
++    </option>
++  </component>
++</project>
+\ No newline at end of file
+Index: .idea/vcs.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/vcs.xml b/.idea/vcs.xml
+new file mode 100644
+--- /dev/null	(date 1628081644982)
++++ b/.idea/vcs.xml	(date 1628081644982)
+@@ -0,0 +1,6 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project version="4">
++  <component name="VcsDirectoryMappings">
++    <mapping directory="$PROJECT_DIR$" vcs="Git" />
++  </component>
++</project>
+\ No newline at end of file
+Index: .idea/compiler.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/compiler.xml b/.idea/compiler.xml
+new file mode 100644
+--- /dev/null	(date 1628081652095)
++++ b/.idea/compiler.xml	(date 1628081652095)
+@@ -0,0 +1,6 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project version="4">
++  <component name="CompilerConfiguration">
++    <bytecodeTargetLevel target="16" />
++  </component>
++</project>
+\ No newline at end of file
+Index: .idea/codeStyles/codeStyleConfig.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/codeStyles/codeStyleConfig.xml b/.idea/codeStyles/codeStyleConfig.xml
+new file mode 100644
+--- /dev/null	(date 1628080178351)
++++ b/.idea/codeStyles/codeStyleConfig.xml	(date 1628080178351)
+@@ -0,0 +1,5 @@
++<component name="ProjectCodeStyleConfiguration">
++  <state>
++    <option name="PREFERRED_PROJECT_CODE_STYLE" value="Default" />
++  </state>
++</component>
+\ No newline at end of file
+Index: .idea/codeStyles/Project.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/codeStyles/Project.xml b/.idea/codeStyles/Project.xml
+new file mode 100644
+--- /dev/null	(date 1628080178349)
++++ b/.idea/codeStyles/Project.xml	(date 1628080178349)
+@@ -0,0 +1,7 @@
++<component name="ProjectCodeStyleConfiguration">
++  <code_scheme name="Project" version="173">
++    <ScalaCodeStyleSettings>
++      <option name="MULTILINE_STRING_CLOSING_QUOTES_ON_NEW_LINE" value="true" />
++    </ScalaCodeStyleSettings>
++  </code_scheme>
++</component>
+\ No newline at end of file
+Index: .idea/misc.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/misc.xml b/.idea/misc.xml
+new file mode 100644
+--- /dev/null	(date 1628081652087)
++++ b/.idea/misc.xml	(date 1628081652087)
+@@ -0,0 +1,7 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project version="4">
++  <component name="ExternalStorageConfigurationManager" enabled="true" />
++  <component name="ProjectRootManager" version="2" languageLevel="JDK_16" default="true" project-jdk-name="16" project-jdk-type="JavaSDK">
++    <output url="file://$PROJECT_DIR$/out" />
++  </component>
++</project>
+\ No newline at end of file

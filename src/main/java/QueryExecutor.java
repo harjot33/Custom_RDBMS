@@ -1,10 +1,12 @@
 import java.awt.desktop.SystemSleepEvent;
 import java.io.*;
-import java.util.ArrayList;
-import java.util.Scanner;
+import java.util.*;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class QueryExecutor {
     private static final String DatabaseURL = "src/main/resources/Database/";
+
     // all the query execution function written here
     public boolean executeCreateQuery(String DatabaseName,String tableName, ArrayList<String> columnArray,
                                       ArrayList<String> dataTypeArray) throws IOException {
@@ -135,13 +137,287 @@ public class QueryExecutor {
         System.out.println(content);
         return true;
     }
+
     // executing the delete query
-    public boolean executeDeleteQuery(String tableName, String columnName, String conditionValue) {
-        return false;
+    public Boolean executeDeleteQuery(String tableName,
+                                      String columnName,
+                                      String conditionValue,
+                                      String DatabaseName) throws IOException {
+        File dbFile = new File("src/main/resources/Database/"+DatabaseName+".db");
+        BufferedReader dbBR = new BufferedReader(new FileReader(dbFile));
+        String readTableName;
+        Boolean didDeleteAny = false;
+        while ((readTableName = dbBR.readLine()) != null) {
+            ArrayList<String> finalFileLines = new ArrayList<String>();
+            if (readTableName.equalsIgnoreCase(tableName)) {
+                // now read contents for table
+                String tableFilePath = "src/main/resources/Tables/"+readTableName +".tb";
+                BufferedReader tableBR = new BufferedReader(new FileReader(tableFilePath));
+                String firstRowDBName = tableBR.readLine();
+                finalFileLines.add(firstRowDBName);
+                finalFileLines.add("\n");
+                String secondRowRowOfColumnNames = tableBR.readLine();
+                int columnIndex = 0;
+                if (secondRowRowOfColumnNames != null) {
+                    // First row is column names
+                    String[] columns = secondRowRowOfColumnNames.split(":");
+                    for (String column: columns) {
+                        if (column.equals(columnName)) {
+                            break;
+                        }
+                        columnIndex = columnIndex + 1;
+                    }
+                    finalFileLines.add(secondRowRowOfColumnNames);
+                    finalFileLines.add("\n");
+                }
+                String tableDataRows;
+                while ((tableDataRows = tableBR.readLine()) != null && !tableDataRows.isEmpty()) {
+                    String[] columns = tableDataRows.split(":");
+                    if (!columns[columnIndex].equals(conditionValue)) {
+                        finalFileLines.add(tableDataRows);
+                        finalFileLines.add("\n");
+                    } else {
+                        didDeleteAny = true;
+                    }
+                }
+                FileWriter writer = new FileWriter(tableFilePath, false);
+                for (String str: finalFileLines) {
+                    writer.append(str);
+                }
+                writer.flush();
+                writer.close();
+            }
+        }
+        return didDeleteAny;
     }
 
+
     // executing the drop query
-    public boolean executeDropQuery(String tableName) {
-        return false;
+    public Boolean executeDropQuery(String tableName,
+                                    String DatabaseName) throws IOException {
+        File dbFile = new File("src/main/resources/Database/"+DatabaseName+".db");
+        BufferedReader dbBR = new BufferedReader(new FileReader(dbFile));
+        String readTableName;
+        Boolean didDeleteAny = false;
+        ArrayList<String> finalFileLines = new ArrayList<String>();
+        while ((readTableName = dbBR.readLine()) != null) {
+            if (!readTableName.equalsIgnoreCase(tableName)) {
+                finalFileLines.add(readTableName);
+            } else {
+                didDeleteAny = true;
+            }
+        }
+        FileWriter writer = new FileWriter(dbFile, false);
+        for (String str: finalFileLines) {
+            writer.append(str);
+        }
+        writer.flush();
+        writer.close();
+        if (didDeleteAny) {
+            String tableFilePath = "src/main/resources/Tables/"+tableName +".tb";
+            File fileToDelete = new File(tableFilePath);
+            if (fileToDelete.delete()) {
+                System.out.println("Deleted the file: " + fileToDelete.getName());
+            } else {
+                System.out.println("Failed to delete the file." + fileToDelete.getName());
+            }
+        }
+        return didDeleteAny;
     }
+
+    public Boolean executeUpdateQuery(String tableName,
+                                      String columnvalues, String condition) throws IOException {
+        String filepath = "src/main/resources/Tables/"+tableName +".tb";
+        HashMap<String, String> valuesmap = new HashMap<>();
+        File file = new File(filepath);
+        String[] values = columnvalues.split(",");
+        for(int i = 0; i< values.length;i++){
+            String incoming = values[i];
+            String[] vals = incoming.split("=");
+            String columnname = vals[0];
+            String value = vals[1];
+            columnname = columnname.trim();
+            value = value.trim();
+            valuesmap.put(columnname,value);
+        }
+        String[] condval = condition.split("=");
+        String condval1 = condval[0].trim();
+        String condval2 = condval[1].trim();
+        HashMap<String, String> conditionVal = new HashMap<>();
+        conditionVal.put(condval1,condval2);
+
+        List<List<String>> columndata = updateChanges(filepath,valuesmap,
+            conditionVal);
+        boolean status = alterChangesWrite(file,columndata);
+
+        if(!status){
+            status = false;
+        }
+
+        return status;
+    }
+
+    public Boolean executeAlterColumnDrop(String tableName,
+                                          String columnName,
+                                          String databaseURL) throws IOException {
+        String filepath = "src/main/resources/Tables/"+tableName +".tb";
+        String datapath = "src/main/resources/Database/"+databaseURL+".db";
+        File file = new File(filepath);
+        File file2 = new File(datapath);
+        List<List<String>> columndata = alterChanges(filepath,columnName);
+        boolean status = alterChangesWrite(file,columndata);
+        List<List<String>> columndata2 = alterChanges(datapath,columnName);
+        boolean status2 = alterChangesWrite(file2,columndata2);
+        if(!status || !status2){
+            status = false;
+        }
+
+        return status;
+    }
+
+    public Boolean executeAlterAddColumn(String tableName,
+                                         String columnName,
+                                         String databaseURL) throws IOException {
+        String filepath = "src/main/resources/Tables/"+tableName +".tb";
+        String datapath = "src/main/resources/Database/"+databaseURL+".db";
+        File file = new File(filepath);
+        File file2 = new File(datapath);
+        List<List<String>> columndata = alterAddChanges(filepath,columnName);
+        boolean status = alterChangesWrite(file,columndata);
+        List<List<String>> columndata2 = alterChanges(datapath,columnName);
+        boolean status2 = alterChangesWrite(file2,columndata2);
+        if(!status || !status2){
+            status = false;
+        }
+
+        return status;
+    }
+
+    public List<List<String>> alterAddChanges(String filepath,
+                                              String columnName) throws IOException{
+        File file = new File(filepath);
+        BufferedReader bufferedReader = new BufferedReader(new FileReader(file));
+        String line = "";
+        int count = 0;
+        int ind = 0;
+        List<String> columnentites = new ArrayList<>();
+        List<List<String>> columndata = new ArrayList<>();
+        while ((line = bufferedReader.readLine()) != null) {
+            if (count == 0) {
+                String[] colums = line.split(":");
+                columnentites = new ArrayList<>(Arrays.asList(colums));
+                columnentites.add(columnName);
+            }else{
+                List<String> singlecolumndata = new ArrayList<>(Arrays.asList(line.split(":")));
+                singlecolumndata.add("");
+                columndata.add(singlecolumndata);
+            }
+
+        }
+        return columndata;
+    }
+
+    public List<List<String>> alterChanges(String filepath, String columnName) throws IOException{
+        File file = new File(filepath);
+        BufferedReader bufferedReader = new BufferedReader(new FileReader(file));
+        String line = "";
+        int count = 0;
+        int ind = 0;
+        List<String> columnentites = new ArrayList<>();
+        List<List<String>> columndata = new ArrayList<>();
+        while ((line = bufferedReader.readLine()) != null) {
+            if (count == 0) {
+                String[] colums = line.split(":");
+                columnentites = new ArrayList<>(Arrays.asList(colums));
+                if (columnentites.contains(columnName)) {
+                    ind = columnentites.indexOf(columnName);
+                    columnentites.remove(ind);
+                    columndata.add(columnentites);
+                    count++;
+                }else{
+                    return null;
+                }
+            }else{
+                List<String> singlecolumndata = new ArrayList<>(Arrays.asList(line.split(":")));
+                singlecolumndata.remove(ind);
+                columndata.add(singlecolumndata);
+            }
+
+        }
+        return columndata;
+    }
+
+
+
+    public List<List<String>> updateChanges(String filepath,
+                                            HashMap<String,String> columnValues
+        , HashMap<String,String> conditionalValues
+    ) throws IOException{
+        File file = new File(filepath);
+        BufferedReader bufferedReader = new BufferedReader(new FileReader(file));
+        Set<String> keys = conditionalValues.keySet();
+        String conditionalColumn = "";
+        String conditionalvalue = "";
+        for(String S : keys){
+            conditionalColumn = S;
+            conditionalvalue = conditionalValues.get(S);
+
+        }
+        String line = "";
+        int count = 0;
+        int ind = 0;
+        List<String> columnentites = new ArrayList<>();
+        List<List<String>> columndata = new ArrayList<>();
+        while ((line = bufferedReader.readLine()) != null) {
+            if (count == 0) {
+                String[] colums = line.split(":");
+                columnentites = new ArrayList<>(Arrays.asList(colums));
+                if (columnentites.contains(conditionalColumn)) {
+                    ind = columnentites.indexOf(conditionalColumn);
+                    columndata.add(columnentites);
+                    count++;
+                }else{
+                    return null;
+                }
+            }else{
+                List<String> singlecolumndata = new ArrayList<>(Arrays.asList(line.split(":")));
+                if(singlecolumndata.get(ind).equals(conditionalvalue)){
+                    Set<String> columnvalkeys = columnValues.keySet();
+                    for(String S : columnvalkeys){
+                        int id = columnentites.indexOf(S);
+                        String columnvals = columnValues.get(S);
+                        singlecolumndata.set(id, columnvals.substring(1,
+                            columnvals.length()-1));
+                    }
+                    columndata.add(singlecolumndata);
+                }else{
+                    columndata.add(singlecolumndata);
+                }
+            }
+
+        }
+        return columndata;
+    }
+
+    public boolean alterChangesWrite(File file, List<List<String>> columndata) throws IOException{
+        BufferedWriter bufferedWriter =
+            new BufferedWriter(new FileWriter(file));
+        for(int i =0; i<columndata.size();i++){
+            String row = "";
+            for(int j = 0; j<columndata.get(i).size();j++){
+                String val = columndata.get(i).get(j);
+                if(j == columndata.get(i).size()-1){
+                    row = row + val;
+                }else{
+                    row = row + val + ":";
+                }
+            }
+            bufferedWriter.write(row);
+            bufferedWriter.write("\n");
+        }
+        bufferedWriter.close();
+        return true;
+    }
+
+
 }

@@ -11,7 +11,7 @@ public class run {
 //        QueryProcessor.processCreateQuery(Pattern.compile(ParsingUtil.CREATE_TABLE_REGEX),query1,"Database1");
 //        File table = new File("src/main/resources/Table/hello.tb");
 //        table.createNewFile();
-        String sq = "SELECT * FROM Customers WHERE ContactNumber=10;";
-        QueryProcessor.processSelectQuery(Pattern.compile(ParsingUtil.SELECT_REGEX),sq,"Database1");
+//        String sq = "SELECT * FROM Customers WHERE ContactNumber=10;";
+//        QueryProcessor.processSelectQuery(Pattern.compile(ParsingUtil.SELECT_REGEX),sq,"Database1");
     }
 }

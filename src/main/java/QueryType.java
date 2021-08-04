@@ -3,8 +3,9 @@ public enum QueryType {
     SELECT,
     INSERT,
     DROP,
-    UPDATE,
-    ALTER,
+    UPDATE_TABLE,
+    ALTER_TABLE_DROP,
+    ALTER_TABLE_ADD,
     DELETE,
     ERROR
 }
