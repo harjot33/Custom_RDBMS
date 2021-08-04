@@ -1,14 +1,13 @@
 import java.util.regex.Pattern;
 
 public class ParsingUtil {
-    public static final String CREATE_TABLE_REGEX = "CREATE TABLE (\\w+) \\(((?:\\s?\\w+\\s\\w+\\(?[0-9]*\\)?,?)+)\\)\\s?;";
-    private static final String CREATE_DATABASE_REGEX = "(?i)CREATE DATABASE (\\w+);";
-    private static final String DROP_TABLE_REGEX = "DROP TABLE (\\w+);";
-    public static final String SELECT_REGEX = "SELECT ([\\s\\S]+) FROM\\s(\\w+)+\\s?(WHERE\\s([\\s\\S]+))?;";
-    public static final String INSERT_REGEX = "INSERT INTO (\\w+) \\(([\\s\\S]+)\\)\\s+VALUES\\s+\\(([\\s\\S]+)\\);";
-    private static final String DELETE_REGEX = "DELETE FROM (\\w+) WHERE ([\\s\\S]+);";
-    private static final String UPDATE_REGEX = "UPDATE (\\w+)\\sSET\\s([\\s\\S]+)\\sWHERE\\s([\\s\\S]+);";
-    private static final String ALTER_REGEX = "ALTER TABLE (\\w+) ADD PRIMARY KEY\\s\\(([\\s\\S]+)\\);";
+    private static final String CREATE_TABLE_REGEX = "(?i)CREATE TABLE (\\w+) \\(((?:\\s?\\w+\\s\\w+\\(?[0-9]*\\)?,?)+)\\)\\s?;";
+    private static final String DROP_TABLE_REGEX = "(?i)DROP TABLE (\\w+);";
+    private static final String SELECT_REGEX = "(?i)SELECT ([\\s\\S]+) FROM\\s(\\w+)+\\s?(WHERE\\s([\\s\\S]+))?;";
+    private static final String INSERT_REGEX = "(?i)INSERT INTO (\\w+) \\(([\\s\\S]+)\\)\\s+VALUES\\s+\\(([\\s\\S]+)\\);";
+    private static final String DELETE_REGEX = "(?i)DELETE FROM (\\w+) WHERE ([\\s\\S]+);";
+    private static final String UPDATE_REGEX = "(?i)UPDATE (\\w+)\\sSET\\s([\\s\\S]+)\\sWHERE\\s([\\s\\S]+);";
+    private static final String ALTER_REGEX = "(?i)ALTER TABLE (\\w+) ADD PRIMARY KEY\\s\\(([\\s\\S]+)\\);";
 
     public QueryType identifyQueryType(String query) {
         if (query == null) {

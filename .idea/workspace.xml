@@ -5,31 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="68e2b75a-60f5-4a9f-9ee7-db061f45fc5d" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.gradle/7.0/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.0/executionHistory/executionHistory.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/7.0/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.0/executionHistory/executionHistory.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/7.0/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.0/fileHashes/fileHashes.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/7.0/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.0/fileHashes/fileHashes.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/7.0/javaCompile/classAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.0/javaCompile/classAnalysis.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/7.0/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.0/javaCompile/javaCompile.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/main/ParsingUtil.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/main/ParsingUtil.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/main/QueryExecutor.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/main/QueryExecutor.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/main/QueryProcessor.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/main/QueryProcessor.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/main/Table/Customers.tb" beforeDir="false" afterPath="$PROJECT_DIR$/bin/main/Table/Customers.tb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/main/run.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/main/run.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/ParsingUtil.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/ParsingUtil.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/QueryExecutor.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/QueryExecutor.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/QueryProcessor.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/QueryProcessor.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/run.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/run.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/GeneralRecord.gr" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/GeneralRecord.gr" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/Table/Customers.tb" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/Table/Customers.tb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/source-classes-mapping.txt" beforeDir="false" afterPath="$PROJECT_DIR$/build/tmp/compileJava/source-classes-mapping.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ParsingUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ParsingUtil.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/QueryExecutor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/QueryExecutor.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/QueryProcessor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/QueryProcessor.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/run.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/run.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/Table/Customers.tb" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Table/Customers.tb" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -61,6 +45,11 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="DeleteQuery" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="ROOT_SYNC" value="DONT_SYNC" />
   </component>
@@ -99,6 +88,19 @@
     </key>
   </component>
   <component name="RunManager" selected="Application.run">
+    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="TEST_OBJECT" value="CLASS" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="Afterlogin" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Afterlogin" />
       <module name="project.main" />
@@ -123,19 +125,6 @@
     <configuration name="run" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="run" />
       <module name="project.main" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
-      <option name="arquillianRunConfiguration">
-        <value>
-          <option name="containerStateName" value="" />
-        </value>
-      </option>
-      <option name="TEST_OBJECT" value="CLASS" />
-      <properties />
-      <listeners />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>

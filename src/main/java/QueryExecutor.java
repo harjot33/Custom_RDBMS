@@ -2,9 +2,12 @@ import java.awt.desktop.SystemSleepEvent;
 import java.io.*;
 import java.util.ArrayList;
 import java.util.Scanner;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class QueryExecutor {
     private static final String DatabaseURL = "src/main/resources/Database/";
+
     // all the query execution function written here
     public boolean executeCreateQuery(String DatabaseName,String tableName, ArrayList<String> columnArray,
                                       ArrayList<String> dataTypeArray) throws IOException {
@@ -135,13 +138,91 @@ public class QueryExecutor {
         System.out.println(content);
         return true;
     }
+
     // executing the delete query
-    public boolean executeDeleteQuery(String tableName, String columnName, String conditionValue) {
-        return false;
+    public Boolean executeDeleteQuery(String tableName,
+                                      String columnName,
+                                      String conditionValue,
+                                      String DatabaseName) throws IOException {
+        File dbFile = new File("src/main/resources/Database/"+DatabaseName+".db");
+        BufferedReader dbBR = new BufferedReader(new FileReader(dbFile));
+        String readTableName;
+        Boolean didDeleteAny = false;
+        while ((readTableName = dbBR.readLine()) != null) {
+            ArrayList<String> finalFileLines = new ArrayList<String>();
+            if (readTableName.equalsIgnoreCase(tableName)) {
+                // now read contents for table
+                String tableFilePath = "src/main/resources/Tables/"+readTableName +".tb";
+                BufferedReader tableBR = new BufferedReader(new FileReader(tableFilePath));
+                String firstRowDBName = tableBR.readLine();
+                finalFileLines.add(firstRowDBName);
+                finalFileLines.add("\n");
+                String secondRowRowOfColumnNames = tableBR.readLine();
+                int columnIndex = 0;
+                if (secondRowRowOfColumnNames != null) {
+                    // First row is column names
+                    String[] columns = secondRowRowOfColumnNames.split(":");
+                    for (String column: columns) {
+                        if (column.equals(columnName)) {
+                            break;
+                        }
+                        columnIndex = columnIndex + 1;
+                    }
+                    finalFileLines.add(secondRowRowOfColumnNames);
+                    finalFileLines.add("\n");
+                }
+                String tableDataRows;
+                while ((tableDataRows = tableBR.readLine()) != null && !tableDataRows.isEmpty()) {
+                    String[] columns = tableDataRows.split(":");
+                    if (!columns[columnIndex].equals(conditionValue)) {
+                        finalFileLines.add(tableDataRows);
+                        finalFileLines.add("\n");
+                    } else {
+                        didDeleteAny = true;
+                    }
+                }
+                FileWriter writer = new FileWriter(tableFilePath, false);
+                for (String str: finalFileLines) {
+                    writer.append(str);
+                }
+                writer.flush();
+                writer.close();
+            }
+        }
+        return didDeleteAny;
     }
 
+
     // executing the drop query
-    public boolean executeDropQuery(String tableName) {
-        return false;
+    public Boolean executeDropQuery(String tableName,
+                                    String DatabaseName) throws IOException {
+        File dbFile = new File("src/main/resources/Database/"+DatabaseName+".db");
+        BufferedReader dbBR = new BufferedReader(new FileReader(dbFile));
+        String readTableName;
+        Boolean didDeleteAny = false;
+        ArrayList<String> finalFileLines = new ArrayList<String>();
+        while ((readTableName = dbBR.readLine()) != null) {
+            if (!readTableName.equalsIgnoreCase(tableName)) {
+                finalFileLines.add(readTableName);
+            } else {
+                didDeleteAny = true;
+            }
+        }
+        FileWriter writer = new FileWriter(dbFile, false);
+        for (String str: finalFileLines) {
+            writer.append(str);
+        }
+        writer.flush();
+        writer.close();
+        if (didDeleteAny) {
+            String tableFilePath = "src/main/resources/Tables/"+tableName +".tb";
+            File fileToDelete = new File(tableFilePath);
+            if (fileToDelete.delete()) {
+                System.out.println("Deleted the file: " + fileToDelete.getName());
+            } else {
+                System.out.println("Failed to delete the file." + fileToDelete.getName());
+            }
+        }
+        return didDeleteAny;
     }
 }
