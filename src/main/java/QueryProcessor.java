@@ -44,34 +44,35 @@ public class QueryProcessor {
             System.out.println(("Query failed!!!"));
     }
 
-    private static void processSelectQuery(Pattern pattern, String originalQuery, String DatabaseName) throws IOException {
+    public static void processSelectQuery(Pattern pattern, String originalQuery, String DatabaseName) throws IOException {
         Matcher matcher = pattern.matcher(originalQuery);
         matcher.matches();
         String tableName = matcher.group(2);
-        String columns = matcher.group(1);
-        String conditions;
-        File db = new File("src/main/resources/Database/" + DatabaseName + ".db");
-        FileReader dbR = new FileReader(db);
-        BufferedReader dbBR = new BufferedReader(dbR);
-        String dbbr = dbBR.readLine();
-        while (dbbr != null) {
-            if (dbbr.equalsIgnoreCase(tableName)) {
-
-                return;
-            }
-            dbbr = dbBR.readLine();
+        String[] columns;
+        columns=matcher.group(1).split(",");
+//        System.out.println(matcher.groupCount());
+        if(columns[0].equalsIgnoreCase("*") && !originalQuery.contains("WHERE")) {
+            System.out.println(1);
+            executor.executeSelectAllQuery(tableName);
+            return;
         }
-        System.out.println("Table not Found!!!");
+        if(!originalQuery.contains("WHERE") && !columns[0].equalsIgnoreCase("*")){
+            executor.executeSelectAllQueryWithoutCondition(tableName,columns);
+//            System.out.println("Hello");
 
-        if (matcher.groupCount() > 2)
-            conditions = matcher.group(4);
+        }
+        if(originalQuery.contains("WHERE") && columns[0].equalsIgnoreCase("*")){
+            executor.executeSelectAllWithConditionQuery(tableName,matcher.group(4));
+
+        }
+
+//        System.out.println(tableName);
     }
 
-    private static void processInsertQuery(Pattern pattern, String originalQuery, String DatabaseName) throws IOException {
+    public static void processInsertQuery(Pattern pattern, String originalQuery, String DatabaseName) throws IOException {
         Matcher matcher = pattern.matcher(originalQuery);
         matcher.matches();
         String tableName = matcher.group(1);
-        String[] columnArray = matcher.group(2).split(",\s");
         String[] dataArray = matcher.group(3).split(",\s");
         if(executor.executeInsertQuery(DatabaseName, tableName, dataArray))
             System.out.println("Insertion done.");
