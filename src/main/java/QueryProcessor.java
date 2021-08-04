@@ -24,7 +24,7 @@ public class QueryProcessor {
         }
     }
 
-    private static void processCreateQuery(Pattern pattern, String originalQuery,String DatabaseName)
+    public static void processCreateQuery(Pattern pattern, String originalQuery,String DatabaseName)
             throws IOException {
         Matcher matcher = pattern.matcher(originalQuery);
         matcher.matches();

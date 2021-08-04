@@ -32,6 +32,11 @@ public class Validations {
     return m.find();
   }
 
+  public static boolean checkTableAvailable(String tableName){
+    String db = DatabaseHandler.databaseName;
+    return true;
+  }
+
 
 
 

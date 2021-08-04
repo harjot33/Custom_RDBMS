@@ -5,6 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="68e2b75a-60f5-4a9f-9ee7-db061f45fc5d" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/DatabaseHandler.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/7.0/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.0/executionHistory/executionHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/7.0/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.0/executionHistory/executionHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/7.0/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.0/fileHashes/fileHashes.bin" afterDir="false" />
@@ -13,19 +15,26 @@
       <change beforePath="$PROJECT_DIR$/.gradle/7.0/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.0/javaCompile/javaCompile.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/main/Database/Database1.db" beforeDir="false" afterPath="$PROJECT_DIR$/bin/main/Database/Database1.db" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/main/Action.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/main/GeneralRecord.gr" beforeDir="false" afterPath="$PROJECT_DIR$/bin/main/GeneralRecord.gr" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bin/main/QueryExecutor.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/main/QueryExecutor.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bin/main/QueryProcessor.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/main/QueryProcessor.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/main/Validations.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/main/Validations.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bin/main/run.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/main/run.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/Action.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/main/QueryExecutor.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/QueryExecutor.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/main/QueryProcessor.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/QueryProcessor.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/Validations.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/Validations.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/main/run.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/run.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/Database/Database1.db" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/Database/Database1.db" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/GeneralRecord.gr" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/GeneralRecord.gr" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/Table/Customers.tb" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/Table/Customers.tb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/source-classes-mapping.txt" beforeDir="false" afterPath="$PROJECT_DIR$/build/tmp/compileJava/source-classes-mapping.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Action.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/QueryExecutor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/QueryExecutor.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/QueryProcessor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/QueryProcessor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Validations.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Validations.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/run.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/run.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/Database/Database1.db" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Database/Database1.db" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/GeneralRecord.gr" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/GeneralRecord.gr" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -60,6 +69,14 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="ROOT_SYNC" value="DONT_SYNC" />
   </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
+  </component>
   <component name="ProjectId" id="1wAMBXyxlVLIpeKwJvt93BwEzNT" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
@@ -70,6 +87,7 @@
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="project.structure.last.edited" value="Project" />
@@ -80,10 +98,28 @@
     <key name="MoveFile.RECENT_KEYS">
       <recent name="G:\DMWA\project\src\main\resources\Database" />
     </key>
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="java" />
+      <recent name="" />
+    </key>
   </component>
-  <component name="RunManager" selected="Application.run">
+  <component name="RunManager" selected="Application.DatabaseHandler">
+    <configuration name="Afterlogin" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Afterlogin" />
+      <module name="project.main" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="App" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="App" />
+      <module name="project.main" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="DatabaseHandler" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="DatabaseHandler" />
       <module name="project.main" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -111,6 +147,8 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.DatabaseHandler" />
+        <item itemvalue="Application.Afterlogin" />
         <item itemvalue="Application.run" />
         <item itemvalue="Application.App" />
       </list>
@@ -128,7 +166,7 @@
       <workItem from="1627897173777" duration="1696000" />
       <workItem from="1627899583737" duration="25612000" />
       <workItem from="1627942157378" duration="705000" />
-      <workItem from="1628002084262" duration="25953000" />
+      <workItem from="1628002084262" duration="37378000" />
     </task>
     <servers />
   </component>

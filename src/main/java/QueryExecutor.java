@@ -2,10 +2,11 @@ import java.io.*;
 import java.util.ArrayList;
 
 public class QueryExecutor {
+    private static final String DatabaseURL = "src/main/resources/Database/";
     // all the query execution function written here
     public boolean executeCreateQuery(String DatabaseName,String tableName, ArrayList<String> columnArray,
                                       ArrayList<String> dataTypeArray) throws IOException {
-        File db = new File("src/main/resources/Database/" + DatabaseName + ".db");
+        File db = new File( DatabaseURL+DatabaseName+".db");
         FileReader dbR = new FileReader(db);
         FileWriter dbW = new FileWriter(db, true);
         BufferedReader dbBR = new BufferedReader(dbR);
@@ -68,6 +69,10 @@ public class QueryExecutor {
         }
         System.out.println("Table Not Found!!!");
         return false;
+    }
+
+    public boolean executeSelectQuery(String tableName){
+        return true;
     }
 
     // executing the delete query
