@@ -1,0 +1,5 @@
+Costomers
+CustomerName varchar(20)
+ContactNumber number(10)
+
+

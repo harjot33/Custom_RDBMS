@@ -4,7 +4,7 @@ import java.util.ArrayList;
 public class Action {
     private static String DatabaseURL = "src/main/resources/Database/";
 
-    public void CreateDatabase(String databaseName) throws IOException {
+    public static void CreateDatabase(String databaseName) throws IOException {
         File gr = new File("src/main/resources/GeneralRecord.gr");
         FileReader grReader = new FileReader(gr);
         FileWriter grWriter = new FileWriter(gr);
