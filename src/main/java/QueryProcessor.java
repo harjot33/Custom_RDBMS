@@ -15,7 +15,7 @@ public class QueryProcessor {
 
         switch (queryType) {
             case CREATE -> processCreateQuery(pattern, originalQuery, DatabaseName);
-            case SELECT -> processSelectQuery(pattern, originalQuery);
+            case SELECT -> processSelectQuery(pattern, originalQuery, DatabaseName);
             case INSERT -> processInsertQuery(pattern, originalQuery, DatabaseName);
             case UPDATE -> processUpdateQuery(pattern, originalQuery);
             case ALTER -> processAlterQuery(pattern, originalQuery);
@@ -24,7 +24,8 @@ public class QueryProcessor {
         }
     }
 
-    public static void processCreateQuery(Pattern pattern, String originalQuery,String DatabaseName) throws IOException {
+    private static void processCreateQuery(Pattern pattern, String originalQuery,String DatabaseName)
+            throws IOException {
         Matcher matcher = pattern.matcher(originalQuery);
         matcher.matches();
         String tableName = matcher.group(1);
@@ -37,74 +38,45 @@ public class QueryProcessor {
             columnArray.add(temp[0]);
             dataTypeArray.add(temp[1]);
         }
-        File db = new File("src/main/resources/Database/"+DatabaseName+".db");
-        FileReader dbR = new FileReader(db);
-        FileWriter dbW = new FileWriter(db,true);
-        BufferedReader dbBR = new BufferedReader(dbR);
-        String dbbr = dbBR.readLine();
-        while (dbbr != null) {
-            if (dbbr.equalsIgnoreCase(tableName)) {
-                System.out.println("Table Already Exist!!!");
-                return;
-            }
-            dbbr = dbBR.readLine();
-        }
-        File table = new File("src/main/resources/Table/" + tableName + ".tb");
-        if (table.createNewFile()) {
-            System.out.println(table + " table is created.");
-            FileWriter tableW = new FileWriter(table);
-            String columnDetails = "";
-            dbW.append(tableName + "\n");
-            for (int i = 0; i < columnArray.size(); i++) {
-                dbW.append(columnArray.get(i) + " " + dataTypeArray.get(i) + "\n");
-                if (i != columnArray.size() - 1)
-                    columnDetails = columnDetails + columnArray.get(i) + ":";
-                else
-                    columnDetails = columnDetails + columnArray.get(i)+"\n";
-            }
-            dbW.append("\n\n");
-            tableW.write(columnDetails);
-            dbR.close();
-            dbBR.close();
-            dbW.close();
-            tableW.close();
-            return;
-        }
+        if(executor.executeCreateQuery(DatabaseName,tableName,columnArray,dataTypeArray))
+            System.out.println("Query Execution Successful");
+        else
+            System.out.println(("Query failed!!!"));
     }
 
-    private static void processSelectQuery(Pattern pattern, String originalQuery) {
-    }
-
-    public static void processInsertQuery(Pattern pattern, String originalQuery, String DatabaseName) throws IOException {
+    private static void processSelectQuery(Pattern pattern, String originalQuery, String DatabaseName) throws IOException {
         Matcher matcher = pattern.matcher(originalQuery);
         matcher.matches();
-        String tableName = matcher.group(1);
-        String[] columnArray = matcher.group(2).split(",\s");
-        String[] dataArray = matcher.group(3).split(",\s");
+        String tableName = matcher.group(2);
+        String columns = matcher.group(1);
+        String conditions;
         File db = new File("src/main/resources/Database/" + DatabaseName + ".db");
         FileReader dbR = new FileReader(db);
         BufferedReader dbBR = new BufferedReader(dbR);
         String dbbr = dbBR.readLine();
         while (dbbr != null) {
             if (dbbr.equalsIgnoreCase(tableName)) {
-                File tb = new File("src/main/resources/Table/"+tableName+".tb");
-                FileWriter tbW = new FileWriter(tb,true);
-                String data = "";
-                for (int i = 0; i < columnArray.length; i++) {
-                    if (i != dataArray.length - 1)
-                        data = data + dataArray[i] + ":";
-                    else
-                        data = data + dataArray[i];
-                }
-                tbW.append(data);
-                tbW.close();
-                dbBR.close();
-                dbR.close();
+
                 return;
             }
             dbbr = dbBR.readLine();
         }
-        System.out.println("Table Not Found!!!");
+        System.out.println("Table not Found!!!");
+
+        if (matcher.groupCount() > 2)
+            conditions = matcher.group(4);
+    }
+
+    private static void processInsertQuery(Pattern pattern, String originalQuery, String DatabaseName) throws IOException {
+        Matcher matcher = pattern.matcher(originalQuery);
+        matcher.matches();
+        String tableName = matcher.group(1);
+        String[] columnArray = matcher.group(2).split(",\s");
+        String[] dataArray = matcher.group(3).split(",\s");
+        if(executor.executeInsertQuery(DatabaseName, tableName, dataArray))
+            System.out.println("Insertion done.");
+        else
+            System.out.println("Table not found!!!");
 
     }
 

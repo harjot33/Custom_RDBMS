@@ -3,3 +3,8 @@ CustomerName varchar(20)
 ContactNumber number(10)
 
 
+Customers
+CustomerName varchar(20)
+ContactNumber number(10)
+
+
