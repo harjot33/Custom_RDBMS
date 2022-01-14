@@ -4,16 +4,51 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="68e2b75a-60f5-4a9f-9ee7-db061f45fc5d" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
+    <list default="true" id="68e2b75a-60f5-4a9f-9ee7-db061f45fc5d" name="Default Changelist" comment="Functionalities.">
+      <change afterPath="$PROJECT_DIR$/src/main/java/Transaction.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/logs.lg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/7.0/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.0/executionHistory/executionHistory.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/7.0/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.0/executionHistory/executionHistory.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/7.0/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.0/fileHashes/fileHashes.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/7.0/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.0/fileHashes/fileHashes.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/7.0/javaCompile/classAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.0/javaCompile/classAnalysis.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/7.0/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.0/javaCompile/javaCompile.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/7.0/javaCompile/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.0/javaCompile/taskHistory.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_04_08_21__6_24_PM__Default_Changelist_.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_04_08_21__6_26_PM__Default_Changelist_.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/DatabaseHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/DatabaseHandler.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/ParsingUtil$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/ParsingUtil$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/ParsingUtil.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/ParsingUtil.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/QueryExecutor.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/QueryExecutor.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/QueryProcessor$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/QueryProcessor$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/QueryProcessor.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/QueryProcessor.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/QueryType.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/QueryType.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/Validations.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/Validations.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/run.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/run.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/Credentials.cred" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/Credentials.cred" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/Database/Database1.db" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/Database/Database1.db" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/Database/data7.db" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/Database/data7.db" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/GeneralRecord.gr" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/GeneralRecord.gr" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/Table/Costomers.tb" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/Table/Costomers.tb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/source-classes-mapping.txt" beforeDir="false" afterPath="$PROJECT_DIR$/build/tmp/compileJava/source-classes-mapping.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/DataDump.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DataDump.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/DatabaseHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DatabaseHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ParsingUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ParsingUtil.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/QueryExecutor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/QueryExecutor.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/QueryProcessor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/QueryProcessor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/run.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/run.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/QueryScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/QueryScreen.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Registration.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Registration.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/mainScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/mainScreen.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/Credentials.cred" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Credentials.cred" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/Database/Database1.db" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Database/Database1.db" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/Database/data7.db" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Database/data7.db" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/Dump/dump.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Dump/dump.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/GeneralRecord.gr" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/GeneralRecord.gr" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/Table/Costomers.tb" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Table/Costomers.tb" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -45,6 +80,11 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="PREVIOUS_COMMIT_AUTHORS">
+      <list>
+        <option value="Saloni Madhusudan Raythatha &lt;sl768578@dal.ca&gt;" />
+      </list>
+    </option>
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
         <entry key="$PROJECT_DIR$" value="DeleteQuery" />
@@ -69,11 +109,13 @@
   </component>
   <component name="PropertiesComponent">
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="Git.Branch.Popup.ShowAllRemotes" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
+    <property name="nodejs_package_manager_path" value="npm" />
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
@@ -87,20 +129,7 @@
       <recent name="" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.run">
-    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
-      <option name="arquillianRunConfiguration">
-        <value>
-          <option name="containerStateName" value="" />
-        </value>
-      </option>
-      <option name="TEST_OBJECT" value="CLASS" />
-      <properties />
-      <listeners />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
+  <component name="RunManager" selected="Application.mainScreen">
     <configuration name="Afterlogin" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Afterlogin" />
       <module name="project.main" />
@@ -108,8 +137,8 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="App" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="App" />
+    <configuration name="DataDump" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="DataDump" />
       <module name="project.main" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -122,19 +151,38 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="run" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="run" />
+    <configuration name="QueryScreen" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="QueryScreen" />
       <module name="project.main" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="mainScreen" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="mainScreen" />
+      <module name="project.main" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.QueryScreen" />
+        <item itemvalue="Application.mainScreen" />
+        <item itemvalue="Application.DataDump" />
         <item itemvalue="Application.DatabaseHandler" />
         <item itemvalue="Application.Afterlogin" />
-        <item itemvalue="Application.run" />
-        <item itemvalue="Application.App" />
       </list>
     </recent_temporary>
   </component>
@@ -151,7 +199,41 @@
       <workItem from="1627899583737" duration="25612000" />
       <workItem from="1627942157378" duration="705000" />
       <workItem from="1628002084262" duration="45003000" />
+      <workItem from="1628153019954" duration="26709000" />
+      <workItem from="1628443037422" duration="3975000" />
+      <workItem from="1628603253085" duration="597000" />
+      <workItem from="1628752483935" duration="633000" />
+      <workItem from="1642176203221" duration="600000" />
     </task>
+    <task id="LOCAL-00001" summary="Adding Delete and Drop Queries">
+      <created>1628088038854</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1628088038854</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Merge">
+      <created>1628088186027</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1628088186027</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Functionalities.">
+      <created>1628103253100</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1628103253100</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Functionalities.">
+      <created>1628103730366</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1628103730366</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -171,5 +253,38 @@
       </map>
     </option>
     <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Added Files." />
+    <MESSAGE value="Adding Delete and Drop Queries" />
+    <MESSAGE value="Merge" />
+    <MESSAGE value="Functionalities." />
+    <option name="LAST_COMMIT_MESSAGE" value="Functionalities." />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/DataDump.java</url>
+          <line>55</line>
+          <option name="timeStamp" value="50" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/QueryScreen.java</url>
+          <line>20</line>
+          <option name="timeStamp" value="51" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/mainScreen.java</url>
+          <line>93</line>
+          <option name="timeStamp" value="53" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+    <watches-manager>
+      <configuration name="GradleRunConfiguration">
+        <watch expression="columndata" />
+      </configuration>
+    </watches-manager>
   </component>
 </project>

@@ -151,7 +151,7 @@ public class QueryExecutor {
             ArrayList<String> finalFileLines = new ArrayList<String>();
             if (readTableName.equalsIgnoreCase(tableName)) {
                 // now read contents for table
-                String tableFilePath = "src/main/resources/Tables/"+readTableName +".tb";
+                String tableFilePath = "src/main/resources/Table/"+readTableName +".tb";
                 BufferedReader tableBR = new BufferedReader(new FileReader(tableFilePath));
                 String firstRowDBName = tableBR.readLine();
                 finalFileLines.add(firstRowDBName);
@@ -214,7 +214,7 @@ public class QueryExecutor {
         writer.flush();
         writer.close();
         if (didDeleteAny) {
-            String tableFilePath = "src/main/resources/Tables/"+tableName +".tb";
+            String tableFilePath = "src/main/resources/Table/"+tableName +".tb";
             File fileToDelete = new File(tableFilePath);
             if (fileToDelete.delete()) {
                 System.out.println("Deleted the file: " + fileToDelete.getName());
@@ -227,7 +227,7 @@ public class QueryExecutor {
 
     public Boolean executeUpdateQuery(String tableName,
                                       String columnvalues, String condition) throws IOException {
-        String filepath = "src/main/resources/Tables/"+tableName +".tb";
+        String filepath = "src/main/resources/Table/"+tableName +".tb";
         HashMap<String, String> valuesmap = new HashMap<>();
         File file = new File(filepath);
         String[] values = columnvalues.split(",");
@@ -260,13 +260,13 @@ public class QueryExecutor {
     public Boolean executeAlterColumnDrop(String tableName,
                                           String columnName,
                                           String databaseURL) throws IOException {
-        String filepath = "src/main/resources/Tables/"+tableName +".tb";
+        String filepath = "src/main/resources/Table/"+tableName +".tb";
         String datapath = "src/main/resources/Database/"+databaseURL+".db";
         File file = new File(filepath);
         File file2 = new File(datapath);
         List<List<String>> columndata = alterChanges(filepath,columnName);
         boolean status = alterChangesWrite(file,columndata);
-        List<List<String>> columndata2 = alterChanges(datapath,columnName);
+        List<List<String>> columndata2 = DBalterChangesDrop(datapath,columnName);
         boolean status2 = alterChangesWrite(file2,columndata2);
         if(!status || !status2){
             status = false;
@@ -277,14 +277,16 @@ public class QueryExecutor {
 
     public Boolean executeAlterAddColumn(String tableName,
                                          String columnName,
-                                         String databaseURL) throws IOException {
-        String filepath = "src/main/resources/Tables/"+tableName +".tb";
+                                         String databaseURL,
+                                         List<String> cred) throws IOException {
+        String filepath = "src/main/resources/Table/"+tableName +".tb";
         String datapath = "src/main/resources/Database/"+databaseURL+".db";
         File file = new File(filepath);
         File file2 = new File(datapath);
         List<List<String>> columndata = alterAddChanges(filepath,columnName);
         boolean status = alterChangesWrite(file,columndata);
-        List<List<String>> columndata2 = alterChanges(datapath,columnName);
+        List<List<String>> columndata2 = DBalterChangesAdd(datapath,
+            columnName,cred);
         boolean status2 = alterChangesWrite(file2,columndata2);
         if(!status || !status2){
             status = false;
@@ -296,7 +298,9 @@ public class QueryExecutor {
     public List<List<String>> alterAddChanges(String filepath,
                                               String columnName) throws IOException{
         File file = new File(filepath);
-        BufferedReader bufferedReader = new BufferedReader(new FileReader(file));
+        try {
+            BufferedReader bufferedReader = new BufferedReader(new FileReader(file));
+
         String line = "";
         int count = 0;
         int ind = 0;
@@ -307,19 +311,27 @@ public class QueryExecutor {
                 String[] colums = line.split(":");
                 columnentites = new ArrayList<>(Arrays.asList(colums));
                 columnentites.add(columnName);
+                columndata.add(columnentites);
+                count++;
             }else{
                 List<String> singlecolumndata = new ArrayList<>(Arrays.asList(line.split(":")));
-                singlecolumndata.add("");
+                singlecolumndata.add("null");
                 columndata.add(singlecolumndata);
             }
 
         }
+
         return columndata;
+        }catch (Exception e){
+            System.out.println(e);
+        }
+        return null;
     }
 
     public List<List<String>> alterChanges(String filepath, String columnName) throws IOException{
         File file = new File(filepath);
-        BufferedReader bufferedReader = new BufferedReader(new FileReader(file));
+        try {
+            BufferedReader bufferedReader = new BufferedReader(new FileReader(file));
         String line = "";
         int count = 0;
         int ind = 0;
@@ -344,9 +356,82 @@ public class QueryExecutor {
             }
 
         }
-        return columndata;
+
+            return columndata;
+        }catch (Exception e){
+            System.out.println(e);
+        }
+        return null;
     }
 
+
+
+    public List<List<String>> DBalterChangesDrop(String filepath,
+                                            String columnName) throws IOException{
+        File file = new File(filepath);
+        try {
+            BufferedReader bufferedReader = new BufferedReader(new FileReader(file));
+            String line = "";
+            int count = 0;
+            int ind = 0;
+            List<String> columnentites = new ArrayList<>();
+            List<List<String>> columndata = new ArrayList<>();
+            while ((line = bufferedReader.readLine()) != null) {
+               String[] incoming = line.split(":");
+               if(count==0){
+                   columnentites.add(incoming[0]);
+                   columndata.add(columnentites);
+                   count++;
+               }else{
+                   columnentites = new ArrayList<>(Arrays.asList(incoming));
+                   if(!columnentites.contains(columnName)){
+                       columndata.add(columnentites);
+                   }
+               }
+            }
+
+            return columndata;
+        }catch (Exception e){
+            System.out.println(e);
+        }
+        return null;
+    }
+
+
+    public List<List<String>> DBalterChangesAdd(String filepath,
+                                                 String columnName,
+                                                List<String> cred) throws IOException{
+        File file = new File(filepath);
+        try {
+            BufferedReader bufferedReader = new BufferedReader(new FileReader(file));
+            String line = "";
+            int count = 0;
+            int ind = 0;
+            List<String> columnentites = new ArrayList<>();
+            List<List<String>> columndata = new ArrayList<>();
+            while ((line = bufferedReader.readLine()) != null) {
+                String[] incoming = line.split(":");
+                if(count==0){
+                    columnentites.add(incoming[0]);
+                    columndata.add(columnentites);
+                    count++;
+                }else{
+                    columnentites = new ArrayList<>(Arrays.asList(incoming));
+                    if(!columnentites.contains(columnName)){
+                        columndata.add(columnentites);
+                    }
+                }
+            }
+            String add = cred.get(0) + ":" + cred.get(1);
+            List<String> adders = new ArrayList<>();
+            adders.add(add);
+            columndata.add(adders);
+            return columndata;
+        }catch (Exception e){
+            System.out.println(e);
+        }
+        return null;
+    }
 
 
     public List<List<String>> updateChanges(String filepath,

@@ -15,7 +15,7 @@ public class DataDump {
 
   public void generateDump(String dbname) throws IOException {
     String filepath1 = "src/main/resources/Dump/dump.txt";
-    String filepath = "src/main/resources/Database/" + dbname + ".db";
+    String filepath = "src/main/resources/Database/" + dbname;
     File file = new File(filepath);
     File file2 = new File(filepath1);
     BufferedReader bufferedReader = new BufferedReader(new FileReader(file));
@@ -131,6 +131,8 @@ public class DataDump {
       bufferedWriter.write("\n");
     }
     bufferedWriter.close();
+    System.out.println("Dump Successfully Generated");
+
     return true;
   }
 

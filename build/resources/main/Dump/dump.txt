@@ -1,6 +1,10 @@
 CREATE TABLE IF NOT EXISTS Costomers (
  CustomerName varchar(255),
  ContactNumber varchar(255),
- NI1 VARCHAR(500),
- NI2 VARCHAR(500),
- NI3 VARCHAR(500),
+)
+INSERT INTO Costomers (CUSTOMERNAME, CONTACTNUMBER)
+VALUES
+(RANDY, PALES),
+);
+
+

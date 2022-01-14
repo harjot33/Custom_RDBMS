@@ -1,10 +1,6 @@
 Costomers
-CustomerName:varchar(20)
-ContactNumber:number(10)
-PK:CustomerName
-
-Customers
-CustomerName:varchar(20)
-ContactNumber:number(10)
-
-
+CustomerName:varchar(255)
+ContactNumber:varchar(255)
+NI1:VARCHAR(500)
+NI2:VARCHAR(500)
+NI3:VARCHAR(500)

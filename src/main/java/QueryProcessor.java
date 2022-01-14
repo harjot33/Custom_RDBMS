@@ -60,11 +60,16 @@ public class QueryProcessor {
         Matcher matcher = pattern.matcher(upperCaseQuery);
         matcher.matches();
         if (matcher.groupCount() > 0) {
-            System.out.println(matcher.group());
             String tableName = matcher.group(1);
             String columnName = matcher.group(2);
+            String datatype = matcher.group(3);
+            String datatypeval = matcher.group(4);
+            List<String> ok = new ArrayList<>();
+            ok.add(columnName);
+            String creo = datatype+"("+datatypeval+")";
+            ok.add(creo);
 
-            executor.executeAlterAddColumn(tableName, columnName, database);
+            executor.executeAlterAddColumn(tableName, columnName, database,ok);
             System.out.println("");
         }
     }
@@ -73,7 +78,7 @@ public class QueryProcessor {
     private static void processAlterDropColumnQuery(Pattern pattern,
                                                     String originalQuery,
                                                     String database) throws IOException {
-        String upperCaseQuery = originalQuery.toUpperCase();
+        String upperCaseQuery = originalQuery;
         Matcher matcher = pattern.matcher(upperCaseQuery);
         matcher.matches();
         if (matcher.groupCount() > 0) {

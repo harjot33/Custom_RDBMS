@@ -126,16 +126,8 @@ public class mainScreen {
       if(auth){
         System.out.println("You have been logged in successfully! " +
             "Redirecting to the user screen.");
-        File file = new File("src/main/resources/GeneralRecord.gr");
-        BufferedReader fileReader = new BufferedReader(new FileReader(file));
-        String line = "";
-        while ((line=fileReader.readLine())!=null){
-          String[] vals = line.split(":");
-          if(vals[0].equals(username)){
-            QueryScreen queryScreen = new QueryScreen();
-            queryScreen.queryScreenOptions(vals[1]);
-          }
-        }
+        DatabaseHandler.DatabaseHandle(username);
+        return;
 
       }else{
         System.out.println("You have entered wrong credentials, please enter " +

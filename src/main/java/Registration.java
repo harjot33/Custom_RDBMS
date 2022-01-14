@@ -27,7 +27,7 @@ public class Registration {
   }
 
   public static boolean checkIfUserExists(String username) throws IOException {
-    String filepath = "resources/Credentials.cred";
+    String filepath = "src/main/resources/Credentials.cred";
     File file = new File(filepath);
     BufferedReader bufferedReader = new BufferedReader(new FileReader(file));
     String line = "";

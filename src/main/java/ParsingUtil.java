@@ -9,8 +9,7 @@ public class ParsingUtil {
     private static final String UPDATE_REGEX = "(?i)UPDATE (\\w+)\\sSET\\s([\\s\\S]+)\\sWHERE\\s([\\s\\S]+);";
     private static final String ALTER_TABLE_DROP = "(?i)ALTER TABLE (\\w+)" +
         "\\sDROP " + "COLUMN (\\w+);";
-    private static final String ALTER_TABLE_ADD = "(?i)ALTER TABLE (\\w+)" +
-        "\\sADD COLUMN (\\w+) (\\w+)\\s+\\(([\\s\\S]+)\\);";
+    private static final String ALTER_TABLE_ADD = "(?i)ALTER TABLE (\\w+)\\sADD COLUMN (\\w+) (\\w+)\\(([\\s\\S]+)\\);";
 
 
     public QueryType identifyQueryType(String query) {
@@ -65,6 +64,8 @@ public class ParsingUtil {
                 return Pattern.compile(UPDATE_REGEX);
             case ALTER_TABLE_DROP:
                 return Pattern.compile(ALTER_TABLE_DROP);
+            case ALTER_TABLE_ADD:
+                return Pattern.compile(ALTER_TABLE_ADD);
             case DELETE:
                 return Pattern.compile(DELETE_REGEX);
         }
